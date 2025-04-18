@@ -1,18 +1,21 @@
 import React from 'react';
-import './App.css';
-import FruitList from './components/Fruits';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './styles/theme';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
 
-const App = () => {
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Fruit Management App</h1>
-      </header>
-      <main>
-        <FruitList />
-      </main>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
-};
+}
 
 export default App;
